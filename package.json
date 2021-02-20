@@ -8,7 +8,9 @@
     "lint:fix": "eslint ./src --ext .ts --fix",
     "build": "tsc -p .",
     "start:prod": "nodemon ./src/index.ts",
-    "start:dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts"
+    "start:dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "knex:up": "knex migrate:latest --knexfile knexfile.ts",
+    "knex:down": "knex migrate:rollback"
   },
   "keywords": [],
   "author": "",
