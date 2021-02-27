@@ -9,8 +9,11 @@
     "build": "tsc -p .",
     "start:prod": "nodemon ./src/index.ts",
     "start:dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "start:debug": "tsnd --inspect --respawn src/index.ts",
     "knex:up": "knex migrate:latest --knexfile knexfile.ts",
-    "knex:down": "knex migrate:rollback"
+    "knex:down": "knex migrate:rollback",
+    "knex:seed": "knex --knexfile knexfile.ts seed:run",
+    "docker:compose": "docker-compose up"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +21,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-respond": "^1.5.15",
     "knex": "^0.21.17",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
@@ -27,6 +32,7 @@
     "@types/express": "^4.17.11",
     "@types/knex": "^0.16.1",
     "@types/morgan": "^1.9.2",
+    "@types/multer": "^1.4.5",
     "@types/node": "^14.14.28",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
@@ -38,6 +44,7 @@
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
     "typescript": "^4.1.5"
   },
   "repository": {
