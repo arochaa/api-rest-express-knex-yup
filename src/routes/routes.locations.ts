@@ -2,13 +2,16 @@ import { Router } from 'express';
 import multer from 'multer';
 import knex from '../database/connection';
 import multerConfig from '../config/multer';
+import isAuth from '../middlewares/isAuth';
 
 const locationRouter = Router();
 
 const upload = multer(multerConfig);
+locationRouter.use(isAuth.isAuth);
 
 locationRouter.get('/', async (req, res) => {
   let locations;
+
   try {
     const existItems: string[] = [];
     const { city, uf, items } = <any>req.query;
@@ -143,9 +146,7 @@ locationRouter.post('/', async (req, res) => {
 locationRouter.put('/:id', upload.single('image'), async (req, res) => {
   try {
     const { id } = req.params;
-    console.log('tst ', req.file.filename);
     const image = req.file.filename;
-
     const location = await knex('locations').where('id', id).first();
 
     if (!location) {
