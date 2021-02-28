@@ -38,6 +38,7 @@
     "@types/morgan": "^1.9.2",
     "@types/multer": "^1.4.5",
     "@types/node": "^14.14.28",
+    "@types/sqlite3": "^3.1.7",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint": "^7.20.0",
