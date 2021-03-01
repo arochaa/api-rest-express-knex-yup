@@ -1,6 +1,6 @@
 [![Express Logo](https://i.cloudup.com/zfY6lL7eFa-3000x3000.png)](http://expressjs.com/)
 
-  Projeto desenvolvido em Node para realizar Upload de imagens com Multer [node](http://nodejs.org).
+  Projeto desenvolvido em Node para realizar Upload de imagens com Multer.
 
 ```js
 import multer from 'multer';
