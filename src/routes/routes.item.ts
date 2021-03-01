@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import knex from '../database/connection';
+import schemaItem from '../schemas/schema.item';
 
 const itemsRouter = Router();
 
@@ -40,11 +41,12 @@ itemsRouter.get('/:id', async (req, res) => {
 
 itemsRouter.post('/', async (req, res) => {
   try {
+    await schemaItem.validate(req.body, { abortEarly: false });
     const { body } = req;
     const item = await knex('items').insert(body);
     res.status(201).json(item);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).json(error.errors);
   }
 });
 
